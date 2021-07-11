@@ -11,7 +11,7 @@ public interface IncrementService {
 	 
 	 * @param id
 	 */
-	@Transactional(isolation = Isolation.SERIALIZABLE)
+	@Transactional(isolation = Isolation.REPEATABLE_READ)
 	public void incrementCounter(int id);
 	
 	
