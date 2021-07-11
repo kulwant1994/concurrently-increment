@@ -23,9 +23,9 @@
 2. Open your favorite IDE, import a new maven project from file system. Choose the checkout location of the project.
 3. Run maven update / clean.
 4. Change the mysql database username and password with your mysql database username and password.
-5. Create the schema and table as provided in the database-instructions file.
+5. Create the schema name it "numberdb" and table name as "number".
 6. Run the project as Springboot application.
 7. Open JMeter and import the test script included in the repository.
 8. Run the test suite.
 9. Run the Jmeter test script.
-10. Check the count in the database with the select query in the database-instructions file.
+10. Check the count in the database with the select query (select * from number).
