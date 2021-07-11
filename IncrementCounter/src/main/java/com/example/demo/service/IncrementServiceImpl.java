@@ -15,14 +15,15 @@ public class IncrementServiceImpl implements IncrementService {
 	@Autowired
 	IncrementRepo irepo; 
 	@Override
-	public synchronized void incrementCounter(int id) {
+	public  void  incrementCounter(int id) {
 		// TODO Auto-generated method stub
 		
 		try {
 			Optional<Number> optionalNumber = irepo.findById(id);
 			if (optionalNumber.isPresent()) {
-				Number number = irepo.findById(id).orElse(null);
-				number.setCounter(number.getCounter()+1);
+				Number number = optionalNumber.get();
+				int updatedCount = number.getCounter() + 1;
+				number.setCounter(updatedCount);
 				irepo.save(number);
 			}
 		} catch (Exception e) {
@@ -39,7 +40,6 @@ public class IncrementServiceImpl implements IncrementService {
 		if(!isAlreadyExist) {
 			Number number = new Number();
 			number.setId(id);
-			number.setCounter(0);
 			irepo.save(number);
 		}
 		else {
