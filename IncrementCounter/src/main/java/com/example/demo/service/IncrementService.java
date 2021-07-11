@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 public interface IncrementService {
 
@@ -10,7 +11,7 @@ public interface IncrementService {
 	 
 	 * @param id
 	 */
-	@Transactional()
+	@Transactional(isolation = Isolation.SERIALIZABLE)
 	public void incrementCounter(int id);
 	
 	
